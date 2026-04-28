@@ -122,22 +122,18 @@
       <div class="variant-block">
         <div class="variant-preview">
           <button class="cta">Köp standard</button>
-          <button class="cta cta--sm">Köp standard</button>
         </div>
         <div class="variant-meta">
           <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.cta</span></div>
-          <div class="meta-item"><span class="meta-label">Liten variant</span><span class="meta-value">.cta.cta--sm</span></div>
           <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">--copper → --copper-dark</span></div>
           <div class="meta-item"><span class="meta-label">Text</span><span class="meta-value">--text-inverse</span></div>
-          <div class="meta-item"><span class="meta-label">Storlek standard</span><span class="meta-value">44px hög · 16px text</span></div>
-          <div class="meta-item"><span class="meta-label">Storlek liten</span><span class="meta-value">36px hög · 14px text</span></div>
+          <div class="meta-item"><span class="meta-label">Storlek</span><span class="meta-value">44px hög · 16px text</span></div>
         </div>
       </div>
 
       <div class="variant-block">
         <div class="variant-preview variant-preview--dark">
           <button class="cta">Köp standard</button>
-          <button class="cta cta--sm">Köp standard</button>
         </div>
         <div class="variant-meta">
           <div class="meta-item"><span class="meta-label">Kontext</span><span class="meta-value">På mörk bakgrund (--primary-dark) – ingen modifierklass behövs</span></div>
@@ -276,8 +272,8 @@
     <section class="comp-section">
       <h2 class="comp-section-title">Nav-länk</h2>
 
-      <div class="variant-block">
-        <div class="variant-preview variant-preview--subtle">
+      <div class="variant-block" style="overflow:visible;">
+        <div class="variant-preview variant-preview--subtle" style="padding-bottom: 24px; overflow:visible;">
           <a href="#" class="nav-link">Standarder</a>
           <a href="#" class="nav-link">Kommittéarbete</a>
           <a href="#" class="nav-link is-active">Om SEK</a>
@@ -286,9 +282,9 @@
         <div class="variant-meta">
           <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.nav-link</span></div>
           <div class="meta-item"><span class="meta-label">Aktiv</span><span class="meta-value">.nav-link.is-active</span></div>
-          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">--surface → --surface-hover vid hover/aktiv</span></div>
-          <div class="meta-item"><span class="meta-label">Border</span><span class="meta-value">1px · --line (försvinner vid hover)</span></div>
-          <div class="meta-item"><span class="meta-label">Text</span><span class="meta-value">--primary-dark</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">transparent · --surface-hover vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Aktiv indikator</span><span class="meta-value">4px --primary underline via ::after · bottom -8px</span></div>
+          <div class="meta-item"><span class="meta-label">Border</span><span class="meta-value">ingen</span></div>
           <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Huvud-navigationen i headern</span></div>
         </div>
       </div>
@@ -296,15 +292,53 @@
       <div class="variant-block">
         <div class="variant-preview">
           <a href="#" class="utility-nav-link">EN</a>
-          <a href="#" class="utility-nav-link">Logga in</a>
-          <a href="#" class="utility-nav-link">Kundservice</a>
+          <a href="#" class="utility-nav-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/><path d="M17.0493 17.4866L20.3493 20.778"/></svg>
+            Sök
+          </a>
+          <a href="#" class="utility-nav-link">Support</a>
+          <a href="#" class="utility-nav-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.54102 19.9996C5.54102 17.891 7.20466 15.2656 11.9998 15.2656C16.794 15.2656 18.4576 17.8719 18.4576 19.9815"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.1254 8.12567C16.1254 10.4043 14.2784 12.2513 11.9997 12.2513C9.722 12.2513 7.875 10.4043 7.875 8.12567C7.875 5.847 9.722 4 11.9997 4C14.2784 4 16.1254 5.847 16.1254 8.12567Z"/></svg>
+            Logga in
+          </a>
         </div>
         <div class="variant-meta">
           <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.utility-nav-link</span></div>
-          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">transparent</span></div>
-          <div class="meta-item"><span class="meta-label">Text</span><span class="meta-value">--text → --primary-dark vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">transparent · --surface-hover vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Text hover</span><span class="meta-value">--primary-dark</span></div>
           <div class="meta-item"><span class="meta-label">Storlek</span><span class="meta-value">32px hög · 13px text</span></div>
           <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Utility-raden högst upp i headern</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HEADER-PILL -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Header-pill – Kundvagn &amp; Logga in</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview" style="gap: 20px;">
+          <!-- Utan badge -->
+          <a href="#" class="header-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.54102 19.9996C5.54102 17.891 7.20466 15.2656 11.9998 15.2656C16.794 15.2656 18.4576 17.8719 18.4576 19.9815"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.1254 8.12567C16.1254 10.4043 14.2784 12.2513 11.9997 12.2513C9.722 12.2513 7.875 10.4043 7.875 8.12567C7.875 5.847 9.722 4 11.9997 4C14.2784 4 16.1254 5.847 16.1254 8.12567Z"/></svg>
+            Logga in
+          </a>
+          <!-- Med badge -->
+          <div class="header-pill-wrap">
+            <a href="#" class="header-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3.24609L5.02379 3.59636L5.96076 14.7593C6.03568 15.67 6.79849 16.3705 7.71211 16.3676H18.3263C19.199 16.3696 19.9395 15.7274 20.063 14.8634L20.9864 8.48264C21.0895 7.76945 20.5953 7.10783 19.8821 7.00469C19.8198 6.99593 5.34876 6.99107 5.34876 6.99107"/><path d="M7.28903 20.2452V20.3633M7.7678 20.2706C7.7678 20.5365 7.55203 20.7521 7.28609 20.7521C7.02016 20.7521 6.80469 20.5365 6.80469 20.2706C6.80469 20.0046 7.02016 19.7891 7.28609 19.7891C7.55203 19.7891 7.7678 20.0046 7.7678 20.2706Z"/><path d="M18.3125 20.2452V20.3633M18.7912 20.2706C18.7912 20.5365 18.5755 20.7521 18.3095 20.7521C18.0436 20.7521 17.8281 20.5365 17.8281 20.2706C17.8281 20.0046 18.0436 19.7891 18.3095 19.7891C18.5755 19.7891 18.7912 20.0046 18.7912 20.2706Z"/></svg>
+              Kundvagn
+            </a>
+            <span class="header-pill-badge">2</span>
+          </div>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.header-pill</span></div>
+          <div class="meta-item"><span class="meta-label">Med badge</span><span class="meta-value">.header-pill-wrap + .header-pill-badge</span></div>
+          <div class="meta-item"><span class="meta-label">Border</span><span class="meta-value">1px · --line-dark · pill-form</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">--surface-subtle · --surface-hover vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Badge</span><span class="meta-value">--copper · vit ring 2px · top/right -6px</span></div>
+          <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Huvud-navigationens höger-del (.header-actions)</span></div>
         </div>
       </div>
     </section>
@@ -314,27 +348,41 @@
       <h2 class="comp-section-title">Kombinationer i kontext</h2>
 
       <div class="variant-block">
-        <div class="variant-preview" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+        <div class="variant-preview" style="flex-direction: column; align-items: flex-start; gap: 24px;">
 
           <div>
             <div class="meta-label" style="margin-bottom: 10px;">Primär + Sekundär (startsida, infosida)</div>
-            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
               <a href="#" class="cta">Köp standard</a>
               <a href="#" class="cta-outline">Se abonnemang</a>
             </div>
           </div>
 
           <div>
-            <div class="meta-label" style="margin-bottom: 10px;">Primär + Ghost (kortkomponenter)</div>
-            <div style="display:flex; gap:12px; flex-wrap:wrap;">
-              <a href="#" class="cta cta--sm">Köp nu</a>
-              <a href="#" class="link-ghost">Läs mer</a>
+            <div class="meta-label" style="margin-bottom: 10px;">Primär + Link Arrow (produktkort, infosida)</div>
+            <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+              <a href="#" class="cta">Köp nu</a>
+              <a href="#" class="link-arrow">Läs mer om standarden</a>
             </div>
           </div>
 
-          <div>
-            <div class="meta-label" style="margin-bottom: 10px;">Enbart Ghost (navigerande länk)</div>
-            <a href="#" class="link-ghost">Se alla standarder</a>
+          <div style="width:100%;">
+            <div class="meta-label" style="margin-bottom: 10px;">Rubrik + Ghost (sektionshuvud med navigeringslänk)</div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; width:100%;">
+              <h2 class="section-title">Standarder i fokus</h2>
+              <a href="#" class="link-ghost">Se alla standarder</a>
+            </div>
+          </div>
+
+          <div style="width:100%;">
+            <div class="meta-label" style="margin-bottom: 10px;">Med eyebrow</div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; width:100%;">
+              <div>
+                <p class="eyebrow" style="margin-bottom:8px;">Populärt just nu</p>
+                <h2 class="section-title">Standarder i fokus</h2>
+              </div>
+              <a href="#" class="link-ghost">Se alla standarder</a>
+            </div>
           </div>
 
         </div>

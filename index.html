@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEK Svensk Elstandard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      font-family: var(--font-body);
+      color: var(--text);
+    }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    .hero {
+      background: var(--primary-dark);
+      padding: 80px 24px 96px;
+    }
+
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: 216px;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      color: var(--text-inverse);
+      max-width: 18ch;
+      margin-bottom: 20px;
+    }
+
+    .hero-lead {
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.72);
+      max-width: 52ch;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Sektion ────────────────────────────────────────────── */
+    .section {
+      padding: 72px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section--bordered {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      /* storlek via .section-title */
+    }
+
+    /* ── Kortgrid ───────────────────────────────────────────── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--accent);
+      flex: 1;
+    }
+
+    .card-number {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* ── Highlight-band ─────────────────────────────────────── */
+    .highlight-band {
+      background: var(--surface-blue);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 56px 24px;
+    }
+
+    .highlight-band-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .highlight-band h2 {
+      /* storlek via .feature-title */
+      margin-bottom: 16px;
+    }
+
+    .highlight-band p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px 24px;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--primary-dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── Nyhetsgrid ─────────────────────────────────────────── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .news-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .news-img {
+      background: var(--placeholder);
+      border-radius: 8px;
+      aspect-ratio: 16/9;
+    }
+
+    .news-meta {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+    }
+
+    .news-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .news-card p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--accent);
+    }
+
+    /* ── Footer-placeholder ─────────────────────────────────── */
+    .page-footer {
+      background: var(--primary-dark);
+      padding: 64px 24px;
+      margin-top: 80px;
+    }
+
+    .page-footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-logo img {
+      width: 140px;
+      height: auto;
+      margin-bottom: 16px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+      max-width: 28ch;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      padding: 4px 0;
+      transition: color 150ms;
+    }
+
+    .footer-col a:hover {
+      color: var(--text-inverse);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ────────────────────────────────────────────── -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-utility">
+      <div class="header-utility-inner">
+        <a href="#" class="utility-nav-link" id="searchTrigger">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/><path d="M17.0493 17.4866L20.3493 20.778"/></svg>
+          Sök
+        </a>
+        <a href="#" class="utility-nav-link">Nyheter</a>
+        <a href="#" class="utility-nav-link">Support</a>
+        <a href="#" class="utility-nav-link">Kontakt</a>
+      </div>
+    </div>
+
+    <a href="#" class="site-logo" aria-label="Till startsidan">
+      <img src="images/logo-sek.svg" alt="SEK Svensk Elstandard" class="site-logo-img">
+    </a>
+
+    <div class="header-main">
+      <nav class="header-nav" aria-label="Huvudnavigering">
+        <a href="#" class="nav-link is-active">Köp produkter</a>
+        <a href="#" class="nav-link">Delta &amp; Påverka</a>
+        <a href="#" class="nav-link">Guider &amp; Stöd</a>
+        <a href="#" class="nav-link">Kurser &amp; event</a>
+        <a href="#" class="nav-link">Om oss</a>
+      </nav>
+      <div class="header-actions">
+        <div class="header-pill-wrap">
+          <a href="#" class="header-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.24609L5.02379 3.59636L5.96076 14.7593C6.03568 15.67 6.79849 16.3705 7.71211 16.3676H18.3263C19.199 16.3696 19.9395 15.7274 20.063 14.8634L20.9864 8.48264C21.0895 7.76945 20.5953 7.10783 19.8821 7.00469C19.8198 6.99593 5.34876 6.99107 5.34876 6.99107"/><path d="M7.28903 20.2452V20.3633M7.7678 20.2706C7.7678 20.5365 7.55203 20.7521 7.28609 20.7521C7.02016 20.7521 6.80469 20.5365 6.80469 20.2706C6.80469 20.0046 7.02016 19.7891 7.28609 19.7891C7.55203 19.7891 7.7678 20.0046 7.7678 20.2706Z"/><path d="M18.3125 20.2452V20.3633M18.7912 20.2706C18.7912 20.5365 18.5755 20.7521 18.3095 20.7521C18.0436 20.7521 17.8281 20.5365 17.8281 20.2706C17.8281 20.0046 18.0436 19.7891 18.3095 19.7891C18.5755 19.7891 18.7912 20.0046 18.7912 20.2706Z"/></svg>
+            Kundvagn
+          </a>
+          <span class="header-pill-badge">2</span>
+        </div>
+        <a href="#" class="header-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.54102 19.9996C5.54102 17.891 7.20466 15.2656 11.9998 15.2656C16.794 15.2656 18.4576 17.8719 18.4576 19.9815"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.1254 8.12567C16.1254 10.4043 14.2784 12.2513 11.9997 12.2513C9.722 12.2513 7.875 10.4043 7.875 8.12567C7.875 5.847 9.722 4 11.9997 4C14.2784 4 16.1254 5.847 16.1254 8.12567Z"/></svg>
+          Logga in
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── SÖKDRAWER ─────────────────────────────────────────── -->
+  <div class="search-overlay" id="searchOverlay"></div>
+  <div class="header-search-drawer" id="headerSearchDrawer">
+    <div class="header-search-form">
+      <div class="header-search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/><path d="M17.0493 17.4866L20.3493 20.778"/></svg>
+        <input type="text" id="searchInput" placeholder="Sök efter standard, handbok eller område" autocomplete="off">
+      </div>
+      <button class="header-search-submit" type="button">Sök</button>
+      <button class="header-search-cancel" type="button" id="searchClose">Avbryt</button>
+    </div>
+    <div class="header-search-popular">
+      <span class="header-search-popular-label">Populärt:</span>
+      <button class="header-search-chip" type="button">Solceller</button>
+      <button class="header-search-chip" type="button">Laddstationer</button>
+      <button class="header-search-chip" type="button">SS-EN 62446</button>
+      <button class="header-search-chip" type="button">Jordning</button>
+      <button class="header-search-chip" type="button">Elmätning</button>
+    </div>
+  </div>
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Sveriges elstandard sedan 1909</p>
+      <h1 class="display">Standarder som driver Sverige framåt</h1>
+      <p class="hero-lead">SEK Svensk Elstandard är det nationella organet för standardisering inom el, elektronik och telekommunikation. Vi ansluter Sverige till det internationella standardiseringsarbetet.</p>
+      <div class="hero-actions">
+        <a href="#" class="cta">Köp standarder</a>
+        <a href="#" class="link-ghost link-ghost--on-dark">Se alla produkter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUKTER ─────────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Populärt just nu</p>
+        <h2 class="section-title">Standarder i fokus</h2>
+      </div>
+      <a href="#" class="link-ghost">Se alla standarder</a>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag">Standard</span>
+        <h3>SS-EN IEC 61439-1 – Lågspänningstavlor</h3>
+        <p>Krav och provning av lågspänningskopplings- och kontrollpaneler för yrkesmässigt bruk.</p>
+        <span class="card-number">SS-EN IEC 61439-1:2021</span>
+      </div>
+      <div class="card">
+        <span class="card-tag">Standard</span>
+        <h3>SS-EN 62446-1 – Solcellssystem fotovoltaik</h3>
+        <p>Minimikrav för systemdokumentation, driftsättningsprovning, inspektion och underhåll.</p>
+        <span class="card-number">SS-EN 62446-1:2016</span>
+      </div>
+      <div class="card">
+        <span class="card-tag">Handbok</span>
+        <h3>Handbok för elinstallationer i bostäder</h3>
+        <p>Praktisk vägledning till SS 437 01 40 med tillämpningsexempel och tolkningar.</p>
+        <span class="card-number">SEK Handbok 444</span>
+      </div>
+      <div class="card">
+        <span class="card-tag">Standard</span>
+        <h3>SS-EN IEC 60364 – Lågspänningsinstallationer</h3>
+        <p>Grundläggande krav för skydd mot elchock, termiska, elektrodynamiska och underspänningseffekter.</p>
+        <span class="card-number">SS-EN IEC 60364-4-41</span>
+      </div>
+      <div class="card">
+        <span class="card-tag">Standard</span>
+        <h3>SS-EN IEC 62305 – Åskskydd</h3>
+        <p>Skydd av byggnadskonstruktioner och installationer mot åska – riskhantering och fysiskt skydd.</p>
+        <span class="card-number">SS-EN IEC 62305-1:2011</span>
+      </div>
+      <div class="card">
+        <span class="card-tag">Teknisk rapport</span>
+        <h3>IEC TR 63227 – Laddinfrastruktur för elfordon</h3>
+        <p>Krav på laddstationer och systemintegration för fordonsladdning i bostäder och offentlig miljö.</p>
+        <span class="card-number">IEC TR 63227:2020</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HIGHLIGHT ─────────────────────────────────────────── -->
+  <div class="highlight-band">
+    <div class="highlight-band-inner">
+      <div>
+        <h2 class="feature-title">Delta i standardiseringsarbetet</h2>
+        <p>Som kommittédeltagare påverkar du framtidens standarder. Ditt branschkunnande behövs i de tekniska kommittéerna som tar fram standarder för el, elektronik och telekommunikation.</p>
+        <a href="#" class="cta">Bli kommittédeltagare</a>
+      </div>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-value">120+</div>
+          <div class="stat-label">Tekniska kommittéer</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3 400</div>
+          <div class="stat-label">Aktiva experter</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">18 000</div>
+          <div class="stat-label">Gällande standarder</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">180</div>
+          <div class="stat-label">Länder i IEC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NYHETER ───────────────────────────────────────────── -->
+  <section class="section section--bordered">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">Aktuellt</p>
+        <h2 class="section-title">Senaste nytt från SEK</h2>
+      </div>
+      <a href="#" class="link-ghost">Se alla nyheter</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-img"></div>
+        <p class="news-meta">Standard · 14 april 2025</p>
+        <h3>Ny standard för laddinfrastruktur i flerbostadshus</h3>
+        <p>IEC 63110 ger tydliga krav för installation och drift av laddpunkter i gemensamma utrymmen.</p>
+      </div>
+      <div class="news-card">
+        <div class="news-img"></div>
+        <p class="news-meta">Remiss · 8 april 2025</p>
+        <h3>Remiss öppen: reviderad SS-EN 50110 om elsäkerhet</h3>
+        <p>Synpunkter tas emot till och med 30 maj 2025. Standarden gäller drift av elektriska installationer.</p>
+      </div>
+      <div class="news-card">
+        <div class="news-img"></div>
+        <p class="news-meta">Event · 2 april 2025</p>
+        <h3>SEK Teknikdag: AI och standardisering den 22 maj</h3>
+        <p>Hur påverkar artificiell intelligens standardiseringsprocessen? Delta i årets teknikdag i Stockholm.</p>
+      </div>
+      <div class="news-card">
+        <div class="news-img"></div>
+        <p class="news-meta">Standard · 28 mars 2025</p>
+        <h3>Uppdaterad handbok för lågspänningsinstallationer</h3>
+        <p>SEK Handbok 444 är nu reviderad med nya tillämpningsexempel för SS-EN IEC 60364-serien.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="page-footer">
+    <div class="page-footer-inner">
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo-sek.svg" alt="SEK Svensk Elstandard">
+        </div>
+        <p class="footer-tagline">SEK Svensk Elstandard är det nationella organet för standardisering inom el, elektronik och telekommunikation.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Köp produkter</p>
+        <a href="#">Standarder</a>
+        <a href="#">Handböcker</a>
+        <a href="#">Prenumerationer</a>
+        <a href="#">Erbjudanden</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Delta &amp; Påverka</p>
+        <a href="#">Kommittéer</a>
+        <a href="#">Remisshantering</a>
+        <a href="#">Internationellt</a>
+        <a href="#">Bli expert</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Om SEK</p>
+        <a href="#">Om oss</a>
+        <a href="#">Kontakt</a>
+        <a href="#">Nyheter</a>
+        <a href="#">Press</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Compact header on scroll
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-compact', window.scrollY > 60);
+    }, { passive: true });
+
+    // Search drawer
+    const searchTrigger = document.getElementById('searchTrigger');
+    const searchDrawer  = document.getElementById('headerSearchDrawer');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchClose   = document.getElementById('searchClose');
+    const searchInput   = document.getElementById('searchInput');
+
+    function openSearch() {
+      searchDrawer.classList.add('is-open');
+      searchOverlay.classList.add('is-open');
+      setTimeout(() => searchInput.focus(), 50);
+    }
+
+    function closeSearch() {
+      searchDrawer.classList.remove('is-open');
+      searchOverlay.classList.remove('is-open');
+    }
+
+    searchTrigger.addEventListener('click', e => { e.preventDefault(); openSearch(); });
+    searchClose.addEventListener('click', closeSearch);
+    searchOverlay.addEventListener('click', closeSearch);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
+
+    document.querySelectorAll('.header-search-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        searchInput.value = chip.textContent;
+        searchInput.focus();
+      });
+    });
+  </script>
+
+</body>
+</html>

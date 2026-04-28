@@ -35,12 +35,6 @@
   color: var(--text-inverse);
 }
 
-/* Liten variant */
-.cta--sm {
-  min-height: 36px;
-  padding: 0 18px;
-  font-size: 14px;
-}
 
 /* ── CTA outline – sekundärknapp ─────────────────────────── */
 .cta-outline {
@@ -148,30 +142,46 @@
 .nav-link {
   display: inline-flex;
   align-items: center;
+  position: relative;
   min-height: 40px;
-  padding: 0 18px;
-  border: 1px solid var(--line);
+  padding: 0 14px;
+  border: none;
   border-radius: var(--radius-pill);
-  background: var(--surface);
-  color: var(--primary-dark);
+  background: transparent;
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 160ms ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -8px;
+  height: 0;
+  border-radius: 2px;
+  background: transparent;
+  transition: height 160ms ease, background-color 160ms ease;
 }
 
 .nav-link:hover {
   background: var(--surface-hover);
-  border-color: transparent;
   color: var(--text);
 }
 
 .nav-link.is-active {
-  background: var(--surface-hover);
-  border-color: transparent;
-  color: var(--primary-dark);
+  background: transparent;
+  color: var(--text);
+}
+
+.nav-link.is-active::after {
+  height: 4px;
+  background: var(--primary);
 }
 
 /* Utility-nav-länk – toppraden med språk, inloggning etc. */
@@ -182,16 +192,83 @@
   min-height: 32px;
   padding: 0 10px;
   border: none;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--text);
   font-family: var(--font-body);
   font-size: 13px;
   text-decoration: none;
   cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
 .utility-nav-link:hover {
+  background: var(--surface-hover);
   color: var(--primary-dark);
+}
+
+/* ── Header-pill – kundvagn / logga in i huvud-navigationen ─ */
+.header-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 13px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-dark);
+  background: var(--surface-subtle);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.header-pill:hover {
+  background: var(--surface-hover);
+  border-color: var(--line);
+  color: var(--primary-dark);
+}
+
+.header-pill svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Wrapper för badge-positionering */
+.header-pill-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Badge – räknare (t.ex. artiklar i kundvagn) */
+.header-pill-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--copper);
+  color: var(--text-inverse);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 0 0 2px var(--surface);
 }
 
 /* ── Type-btn – filterknappar / kategoriväljare ───────────── */

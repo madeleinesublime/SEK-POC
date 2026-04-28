@@ -94,14 +94,12 @@ a {
   color: var(--copper);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 2px;
-  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
 }
 
 .prose a:hover {
   color: var(--copper-dark);
-  text-decoration-color: var(--copper-dark);
 }
 
 /* ── Utility: visa/dölja ─────────────────────────────────── */
@@ -153,21 +151,101 @@ a {
   background: transparent;
 }
 
-/* ── Sidtitel & ingress ──────────────────────────────────── */
-.page-title {
-  margin: 0 0 12px;
-  font-size: 38px;
+/* ── Typskala ────────────────────────────────────────────── */
+
+/* ── Startsida ────────────────────────────────────────────── */
+
+/* 48px / 800 – herorubrik startsida */
+.display {
+  font-size: 48px;
+  font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: var(--primary-dark);
+  color: var(--text);
+  margin: 0;
 }
 
+/* 32px – feature-band, kampanjrubrik startsida */
+.feature-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+
+/* 28px – sektionsrubriker startsida (Standarder i fokus, Nyheter …) */
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ── Standardsida / infosida ─────────────────────────────── */
+
+/* 38px – sidtitel (Så handlar du, Om oss …) */
+.h1,
+.page-title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+/* 24px – artikelsektioner, sektionsrubriker */
+.h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+/* 20px – kortrubriker, sidebars */
+.h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+/* 18px – ingress under sidtitel */
 .page-ingress {
   font-size: 18px;
   line-height: 1.5;
   color: var(--accent);
   max-width: 58ch;
   margin: 0 0 18px;
+}
+
+/* 14px – liten brödtext, kortbeskrivningar */
+.t-body-sm {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--accent);
+}
+
+/* 13px – meta, hjälptexter */
+.t-meta {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* 12px – caption, produkt-id */
+.t-caption {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
 }
 
 .page-updated {

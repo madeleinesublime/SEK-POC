@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEK – Header & Navigation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/header.css">
+  <style>
+    body { background: var(--surface-hover); }
+
+    .comp-header {
+      background: var(--primary-dark);
+      color: var(--text-inverse);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .comp-header a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .comp-header a:hover { color: var(--text-inverse); }
+    .comp-header h1 {
+      margin: 0;
+      font-size: 22px;
+      color: var(--text-inverse);
+      letter-spacing: -0.02em;
+    }
+    .comp-header-sep { color: rgba(255,255,255,0.3); }
+
+    .comp-body {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+      display: grid;
+      gap: 40px;
+    }
+
+    .comp-section { display: grid; gap: 16px; }
+
+    .comp-section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      margin: 0;
+    }
+
+    .variant-block {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(29,52,97,0.10);
+      overflow: hidden;
+    }
+
+    .variant-preview {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .variant-meta {
+      padding: 14px 20px;
+      background: var(--surface-subtle);
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .meta-value {
+      font-size: 12px;
+      color: var(--text);
+      font-family: monospace;
+    }
+
+    /* Mobile preview container */
+    .mobile-preview-wrap {
+      background: var(--surface-hover);
+      padding: 24px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+    }
+
+    .mobile-preview-frame {
+      width: 390px;
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-panel);
+      border: 1px solid var(--line);
+    }
+
+    /* Override sticky inside preview frame */
+    .mobile-preview-frame .mobile-header {
+      position: relative;
+      display: flex !important;
+    }
+
+    /* Override sticky for desktop preview */
+    .variant-preview .site-header {
+      position: relative;
+    }
+
+    /* Tillåt logo att overflowa header-main */
+    .variant-block,
+    .variant-preview {
+      overflow: visible;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="comp-header">
+    <a href="../index-components.html">← Bibliotek</a>
+    <span class="comp-header-sep">/</span>
+    <h1>Header & Navigation</h1>
+  </div>
+
+  <div class="comp-body">
+
+    <!-- ══════════════════════════════════════════════════════
+         DESKTOP HEADER
+    ═══════════════════════════════════════════════════════ -->
+
+    <section class="comp-section">
+      <h2 class="comp-section-title">Desktop – standardläge</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview">
+          <header class="site-header" id="demoHeader">
+            <div class="header-utility">
+              <div class="header-utility-inner">
+                <a href="#" class="utility-nav-link" id="searchTrigger">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/><path d="M17.0493 17.4866L20.3493 20.778"/></svg>
+                  Sök
+                </a>
+                <a href="#" class="utility-nav-link">Nyheter</a>
+                <a href="#" class="utility-nav-link">Support</a>
+                <a href="#" class="utility-nav-link">Kontakt</a>
+              </div>
+            </div>
+
+            <a href="#" class="site-logo" aria-label="Till startsidan">
+              <img src="../images/logo-sek.svg" alt="SEK Svensk Elstandard" class="site-logo-img">
+            </a>
+
+            <div class="header-main">
+              <nav class="header-nav" aria-label="Huvudnavigering">
+                <a href="#" class="nav-link is-active">Köp produkter</a>
+                <a href="#" class="nav-link">Delta &amp; Påverka</a>
+                <a href="#" class="nav-link">Guider &amp; Stöd</a>
+                <a href="#" class="nav-link">Kurser &amp; event</a>
+                <a href="#" class="nav-link">Om oss</a>
+              </nav>
+              <div class="header-actions">
+                <div class="header-pill-wrap">
+                  <a href="#" class="header-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.24609L5.02379 3.59636L5.96076 14.7593C6.03568 15.67 6.79849 16.3705 7.71211 16.3676H18.3263C19.199 16.3696 19.9395 15.7274 20.063 14.8634L20.9864 8.48264C21.0895 7.76945 20.5953 7.10783 19.8821 7.00469C19.8198 6.99593 5.34876 6.99107 5.34876 6.99107"/><path d="M7.28903 20.2452V20.3633M7.7678 20.2706C7.7678 20.5365 7.55203 20.7521 7.28609 20.7521C7.02016 20.7521 6.80469 20.5365 6.80469 20.2706C6.80469 20.0046 7.02016 19.7891 7.28609 19.7891C7.55203 19.7891 7.7678 20.0046 7.7678 20.2706Z"/><path d="M18.3125 20.2452V20.3633M18.7912 20.2706C18.7912 20.5365 18.5755 20.7521 18.3095 20.7521C18.0436 20.7521 17.8281 20.5365 17.8281 20.2706C17.8281 20.0046 18.0436 19.7891 18.3095 19.7891C18.5755 19.7891 18.7912 20.0046 18.7912 20.2706Z"/></svg>
+                    Kundvagn
+                  </a>
+                  <span class="header-pill-badge">2</span>
+                </div>
+                <a href="#" class="header-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.54102 19.9996C5.54102 17.891 7.20466 15.2656 11.9998 15.2656C16.794 15.2656 18.4576 17.8719 18.4576 19.9815"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.1254 8.12567C16.1254 10.4043 14.2784 12.2513 11.9997 12.2513C9.722 12.2513 7.875 10.4043 7.875 8.12567C7.875 5.847 9.722 4 11.9997 4C14.2784 4 16.1254 5.847 16.1254 8.12567Z"/></svg>
+                  Logga in
+                </a>
+              </div>
+            </div>
+          </header>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Logo</span><span class="meta-value">position: absolute · left: max(24px, 50vw-640px) · 190×75px</span></div>
+          <div class="meta-item"><span class="meta-label">Header-main padding</span><span class="meta-value">padding-left: 216px</span></div>
+          <div class="meta-item"><span class="meta-label">Nav-länk aktiv</span><span class="meta-value">4px --primary underline ::after</span></div>
+          <div class="meta-item"><span class="meta-label">Actions</span><span class="meta-value">.header-pill · .header-pill-wrap + .header-pill-badge</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPACT STATE -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Desktop – compact (vid scroll)</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview">
+          <header class="site-header is-compact">
+            <div class="header-utility">
+              <div class="header-utility-inner">
+                <a href="#" class="utility-nav-link">Sök</a>
+                <a href="#" class="utility-nav-link">Nyheter</a>
+                <a href="#" class="utility-nav-link">Support</a>
+                <a href="#" class="utility-nav-link">Kontakt</a>
+              </div>
+            </div>
+            <a href="#" class="site-logo" aria-label="Till startsidan">
+              <img src="../images/logo-sek.svg" alt="SEK Svensk Elstandard" class="site-logo-img">
+            </a>
+            <div class="header-main">
+              <nav class="header-nav" aria-label="Huvudnavigering">
+                <a href="#" class="nav-link is-active">Köp produkter</a>
+                <a href="#" class="nav-link">Delta &amp; Påverka</a>
+                <a href="#" class="nav-link">Guider &amp; Stöd</a>
+                <a href="#" class="nav-link">Kurser &amp; event</a>
+                <a href="#" class="nav-link">Om oss</a>
+              </nav>
+              <div class="header-actions">
+                <div class="header-pill-wrap">
+                  <a href="#" class="header-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.24609L5.02379 3.59636L5.96076 14.7593C6.03568 15.67 6.79849 16.3705 7.71211 16.3676H18.3263C19.199 16.3696 19.9395 15.7274 20.063 14.8634L20.9864 8.48264C21.0895 7.76945 20.5953 7.10783 19.8821 7.00469C19.8198 6.99593 5.34876 6.99107 5.34876 6.99107"/><path d="M7.28903 20.2452V20.3633M7.7678 20.2706C7.7678 20.5365 7.55203 20.7521 7.28609 20.7521C7.02016 20.7521 6.80469 20.5365 6.80469 20.2706C6.80469 20.0046 7.02016 19.7891 7.28609 19.7891C7.55203 19.7891 7.7678 20.0046 7.7678 20.2706Z"/><path d="M18.3125 20.2452V20.3633M18.7912 20.2706C18.7912 20.5365 18.5755 20.7521 18.3095 20.7521C18.0436 20.7521 17.8281 20.5365 17.8281 20.2706C17.8281 20.0046 18.0436 19.7891 18.3095 19.7891C18.5755 19.7891 18.7912 20.0046 18.7912 20.2706Z"/></svg>
+                    Kundvagn
+                  </a>
+                  <span class="header-pill-badge">2</span>
+                </div>
+                <a href="#" class="header-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.54102 19.9996C5.54102 17.891 7.20466 15.2656 11.9998 15.2656C16.794 15.2656 18.4576 17.8719 18.4576 19.9815"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.1254 8.12567C16.1254 10.4043 14.2784 12.2513 11.9997 12.2513C9.722 12.2513 7.875 10.4043 7.875 8.12567C7.875 5.847 9.722 4 11.9997 4C14.2784 4 16.1254 5.847 16.1254 8.12567Z"/></svg>
+                  Logga in
+                </a>
+              </div>
+            </div>
+          </header>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.site-header.is-compact</span></div>
+          <div class="meta-item"><span class="meta-label">Aktiveras</span><span class="meta-value">scroll > 60px</span></div>
+          <div class="meta-item"><span class="meta-label">Utility-nav</span><span class="meta-value">Döljs med opacity 0 + max-height 0</span></div>
+          <div class="meta-item"><span class="meta-label">Logo-mark</span><span class="meta-value">48px → 36px</span></div>
+          <div class="meta-item"><span class="meta-label">Huvud-höjd</span><span class="meta-value">72px → 56px</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SÖK-DRAWER -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Sök-drawer (desktop)</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview" style="padding: 0; background: var(--surface);">
+          <div style="position: relative; background: var(--surface); padding: 28px 24px; border-bottom: 1px solid var(--line);">
+            <div class="header-search-form">
+              <div class="header-search-field">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/>
+                  <path d="M17.0493 17.4866L20.3493 20.778"/>
+                </svg>
+                <input type="text" placeholder="Sök efter standard, handbok eller område" />
+              </div>
+              <button class="header-search-submit" type="button">Sök</button>
+              <button class="header-search-cancel" type="button">Avbryt</button>
+            </div>
+            <div class="header-search-popular">
+              <span class="header-search-popular-label">Populärt:</span>
+              <button class="header-search-chip" type="button">Solceller</button>
+              <button class="header-search-chip" type="button">Laddstationer</button>
+              <button class="header-search-chip" type="button">SS-EN 62446</button>
+              <button class="header-search-chip" type="button">Jordning</button>
+              <button class="header-search-chip" type="button">Elmätning</button>
+            </div>
+          </div>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.header-search-drawer.is-open</span></div>
+          <div class="meta-item"><span class="meta-label">Position</span><span class="meta-value">fixed · top 0 · full bredd</span></div>
+          <div class="meta-item"><span class="meta-label">Fältbredd</span><span class="meta-value">max 720px · centrerat</span></div>
+          <div class="meta-item"><span class="meta-label">Overlay</span><span class="meta-value">.search-overlay.is-open · z-index 199</span></div>
+          <div class="meta-item"><span class="meta-label">Animation</span><span class="meta-value">searchFadeIn 0.2s</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         MOBIL
+    ═══════════════════════════════════════════════════════ -->
+
+    <section class="comp-section">
+      <h2 class="comp-section-title">Mobil – header-bar (&lt;1100px)</h2>
+
+      <div class="variant-block">
+        <div class="mobile-preview-wrap">
+          <div class="mobile-preview-frame">
+            <header class="mobile-header">
+              <a href="#" class="mobile-header-logo" aria-label="Till startsidan">
+                <img src="../images/logo-sek.svg" alt="SEK Svensk Elstandard" class="mobile-logo-img">
+              </a>
+              <div class="mobile-header-actions">
+                <button class="mobile-header-btn" type="button" aria-label="Sök">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/><path d="M17.0493 17.4866L20.3493 20.778"/></svg>
+                  <span class="mobile-btn-label">Sök</span>
+                </button>
+                <div class="mobile-cart-wrap">
+                  <button class="mobile-header-btn" type="button" aria-label="Kundvagn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.24609L5.02379 3.59636L5.96076 14.7593C6.03568 15.67 6.79849 16.3705 7.71211 16.3676H18.3263C19.199 16.3696 19.9395 15.7274 20.063 14.8634L20.9864 8.48264C21.0895 7.76945 20.5953 7.10783 19.8821 7.00469C19.8198 6.99593 5.34876 6.99107 5.34876 6.99107"/><path d="M7.28903 20.2452V20.3633M7.7678 20.2706C7.7678 20.5365 7.55203 20.7521 7.28609 20.7521C7.02016 20.7521 6.80469 20.5365 6.80469 20.2706C6.80469 20.0046 7.02016 19.7891 7.28609 19.7891C7.55203 19.7891 7.7678 20.0046 7.7678 20.2706Z"/><path d="M18.3125 20.2452V20.3633M18.7912 20.2706C18.7912 20.5365 18.5755 20.7521 18.3095 20.7521C18.0436 20.7521 17.8281 20.5365 17.8281 20.2706C17.8281 20.0046 18.0436 19.7891 18.3095 19.7891C18.5755 19.7891 18.7912 20.0046 18.7912 20.2706Z"/></svg>
+                    <span class="mobile-btn-label">Kundvagn</span>
+                  </button>
+                  <div class="mobile-cart-badge">2</div>
+                </div>
+                <button class="mobile-header-btn" type="button" aria-label="Logga in">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.54102 19.9996C5.54102 17.891 7.20466 15.2656 11.9998 15.2656C16.794 15.2656 18.4576 17.8719 18.4576 19.9815"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.1254 8.12567C16.1254 10.4043 14.2784 12.2513 11.9997 12.2513C9.722 12.2513 7.875 10.4043 7.875 8.12567C7.875 5.847 9.722 4 11.9997 4C14.2784 4 16.1254 5.847 16.1254 8.12567Z"/></svg>
+                  <span class="mobile-btn-label">Logga in</span>
+                </button>
+                <button class="mobile-header-btn" type="button" aria-label="Meny" id="mobileMenuBtn">
+                  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                  <span class="mobile-btn-label">Meny</span>
+                </button>
+              </div>
+            </header>
+            <div style="padding: 20px; color: var(--accent); font-size: 14px; line-height: 1.5;">
+              Sida-innehåll börjar här…
+            </div>
+          </div>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Höjd</span><span class="meta-value">64px</span></div>
+          <div class="meta-item"><span class="meta-label">Bredd</span><span class="meta-value">&lt;1100px</span></div>
+          <div class="meta-item"><span class="meta-label">Position</span><span class="meta-value">sticky · top 0</span></div>
+          <div class="meta-item"><span class="meta-label">Knappar</span><span class="meta-value">.mobile-header-btn · 22px ikoner</span></div>
+          <div class="meta-item"><span class="meta-label">Badge</span><span class="meta-value">.mobile-cart-badge · --copper</span></div>
+          <div class="meta-item"><span class="meta-label">Labels döljs</span><span class="meta-value">&lt;600px</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBIL MENY-PANEL -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Mobil – meny-panel</h2>
+
+      <div class="variant-block">
+        <div class="mobile-preview-wrap">
+          <div class="mobile-preview-frame" style="height: 600px; position: relative; overflow: hidden;">
+            <div style="position: absolute; inset: 0; background: var(--overlay); z-index: 1;"></div>
+            <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 320px; background: var(--surface); z-index: 2; display: flex; flex-direction: column;">
+              <div class="mobile-menu-top">
+                <span class="mobile-menu-title">Meny</span>
+                <button class="mobile-menu-close" type="button" aria-label="Stäng meny">
+                  <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+              <div class="mobile-menu-body">
+                <a href="#" class="mobile-menu-item">
+                  <span class="mobile-menu-item-label">Köp produkter</span>
+                  <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+                <a href="#" class="mobile-menu-item">
+                  <span class="mobile-menu-item-label">Delta &amp; Påverka</span>
+                  <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+                <a href="#" class="mobile-menu-item">
+                  <span class="mobile-menu-item-label">Guider &amp; Stöd</span>
+                  <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+                <a href="#" class="mobile-menu-item">
+                  <span class="mobile-menu-item-label">Kurser &amp; event</span>
+                  <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+                <a href="#" class="mobile-menu-item">
+                  <span class="mobile-menu-item-label">Om SEK</span>
+                  <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+                <a href="#" class="mobile-menu-item">
+                  <span class="mobile-menu-item-label">Nyheter</span>
+                  <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+              </div>
+              <div class="mobile-menu-footer">
+                <a href="#" class="cta" style="text-align:center;">Köp standarder</a>
+                <a href="#" class="cta-outline" style="text-align:center;">Logga in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Bredd</span><span class="meta-value">min(380px, 90vw)</span></div>
+          <div class="meta-item"><span class="meta-label">Position</span><span class="meta-value">fixed · top/right/bottom 0</span></div>
+          <div class="meta-item"><span class="meta-label">Öppning</span><span class="meta-value">translateX(100%) → 0 · 300ms cubic-bezier</span></div>
+          <div class="meta-item"><span class="meta-label">Overlay</span><span class="meta-value">--overlay · z-index 200</span></div>
+          <div class="meta-item"><span class="meta-label">Panel z-index</span><span class="meta-value">201</span></div>
+          <div class="meta-item"><span class="meta-label">Footer</span><span class="meta-value">CTA + CTA-outline</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBIL SÖK -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Mobil – söktakeover</h2>
+
+      <div class="variant-block">
+        <div class="mobile-preview-wrap">
+          <div class="mobile-preview-frame" style="height: 500px;">
+            <div class="mobile-search-topbar">
+              <span class="mobile-search-title">Sök</span>
+              <button class="mobile-search-cancel" type="button">Avbryt</button>
+            </div>
+            <div class="mobile-search-body">
+              <div class="mobile-search-field">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/><path d="M17.0493 17.4866L20.3493 20.778"/></svg>
+                <input type="text" placeholder="Sök standard, handbok, ämne..." autocomplete="off" />
+              </div>
+              <div>
+                <div class="mobile-search-popular-label">Populära sökningar</div>
+                <div class="mobile-search-chips">
+                  <button type="button">Solceller</button>
+                  <button type="button">Laddstationer</button>
+                  <button type="button">SS-EN 62446</button>
+                  <button type="button">Lågspänning</button>
+                  <button type="button">Jordning</button>
+                  <button type="button">Elmätning</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.mobile-search-takeover.is-open</span></div>
+          <div class="meta-item"><span class="meta-label">Position</span><span class="meta-value">fixed · inset 0 · z-index 300</span></div>
+          <div class="meta-item"><span class="meta-label">Sökfält</span><span class="meta-value">--surface-hover bakgrund · pill-form</span></div>
+          <div class="meta-item"><span class="meta-label">Chips</span><span class="meta-value">--copper border/text · hover --surface-warm</span></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ── Globala overlay-element och paneler ───────────────── -->
+  <div class="header-overlay" id="headerOverlay"></div>
+  <div class="search-overlay" id="searchOverlay"></div>
+
+  <div class="header-search-drawer" id="headerSearchDrawer">
+    <div class="header-search-form">
+      <div class="header-search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M11.195 19.6124C15.8436 19.6124 19.6121 15.8439 19.6121 11.1952C19.6121 6.54656 15.8436 2.77808 11.195 2.77808C6.54631 2.77808 2.77783 6.54656 2.77783 11.1952C2.77783 15.8439 6.54631 19.6124 11.195 19.6124Z"/>
+          <path d="M17.0493 17.4866L20.3493 20.778"/>
+        </svg>
+        <input type="text" id="headerSearchInput" placeholder="Sök efter standard, handbok eller område" autocomplete="off" />
+      </div>
+      <button class="header-search-submit" type="button">Sök</button>
+      <button class="header-search-cancel" type="button" id="searchClose">Avbryt</button>
+    </div>
+    <div class="header-search-popular">
+      <span class="header-search-popular-label">Populärt:</span>
+      <button class="header-search-chip" type="button">Solceller</button>
+      <button class="header-search-chip" type="button">Laddstationer</button>
+      <button class="header-search-chip" type="button">SS-EN 62446</button>
+      <button class="header-search-chip" type="button">Jordning</button>
+      <button class="header-search-chip" type="button">Elmätning</button>
+    </div>
+  </div>
+
+  <script>
+    // Mega menu
+    const megaTrigger = document.getElementById('megaMenuTrigger');
+    const megaPanel   = document.getElementById('megaPanel');
+    const overlay     = document.getElementById('headerOverlay');
+
+    function openMega() {
+      megaPanel.classList.add('is-open');
+      overlay.classList.add('is-open');
+      megaTrigger.setAttribute('aria-expanded', 'true');
+      megaTrigger.classList.add('is-active');
+    }
+
+    function closeMega() {
+      megaPanel.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+      megaTrigger.setAttribute('aria-expanded', 'false');
+      megaTrigger.classList.remove('is-active');
+    }
+
+    megaTrigger.addEventListener('click', () => {
+      megaPanel.classList.contains('is-open') ? closeMega() : openMega();
+    });
+
+    overlay.addEventListener('click', closeMega);
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeMega(); closeSearch(); }
+    });
+
+    // Compact header on scroll
+    const demoHeader = document.getElementById('demoHeader');
+    if (demoHeader) {
+      window.addEventListener('scroll', () => {
+        demoHeader.classList.toggle('is-compact', window.scrollY > 60);
+      }, { passive: true });
+    }
+
+    // Search drawer
+    const searchTrigger  = document.getElementById('searchTrigger');
+    const searchDrawer   = document.getElementById('headerSearchDrawer');
+    const searchOverlay  = document.getElementById('searchOverlay');
+    const searchClose    = document.getElementById('searchClose');
+    const searchInput    = document.getElementById('headerSearchInput');
+
+    function openSearch() {
+      searchDrawer.classList.add('is-open');
+      searchOverlay.classList.add('is-open');
+      closeMega();
+      setTimeout(() => searchInput.focus(), 50);
+    }
+
+    function closeSearch() {
+      searchDrawer.classList.remove('is-open');
+      searchOverlay.classList.remove('is-open');
+    }
+
+    if (searchTrigger) searchTrigger.addEventListener('click', e => { e.preventDefault(); openSearch(); });
+    if (searchClose)   searchClose.addEventListener('click', closeSearch);
+    if (searchOverlay) searchOverlay.addEventListener('click', closeSearch);
+
+    // Search chips fill input
+    document.querySelectorAll('.header-search-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        searchInput.value = chip.textContent;
+        searchInput.focus();
+      });
+    });
+  </script>
+
+</body>
+</html>
