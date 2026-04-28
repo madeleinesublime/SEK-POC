@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEK – Typografi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    body { background: #f4f6f9; }
+
+    .comp-header {
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .comp-header a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .comp-header a:hover { color: #fff; }
+    .comp-header h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .comp-header-sep { color: rgba(255,255,255,0.3); }
+
+    .comp-body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+      display: grid;
+      gap: 48px;
+    }
+
+    /* Sektionsrubrik i dokumentet */
+    .token-section h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Varje typografiexempel */
+    .type-example {
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(29,52,97,0.10);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .type-example-preview {
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .type-example-meta {
+      display: flex;
+      gap: 24px;
+      padding: 12px 32px;
+      background: #f9fbfd;
+      flex-wrap: wrap;
+    }
+
+    .type-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .type-meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .type-meta-value {
+      font-size: 12px;
+      color: var(--text);
+      font-family: monospace;
+    }
+
+    /* Brödtextexempel med längre text */
+    .prose-example {
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(29,52,97,0.10);
+      box-shadow: var(--shadow-card);
+      padding: 32px;
+    }
+
+    /* Färgexempel för text */
+    .color-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .color-text-example {
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(29,52,97,0.10);
+      box-shadow: var(--shadow-card);
+      padding: 20px 24px;
+    }
+
+    .color-text-example .sample {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .color-text-example .meta {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="comp-header">
+    <a href="../index-components.html">← Bibliotek</a>
+    <span class="comp-header-sep">/</span>
+    <h1>Typografi</h1>
+  </div>
+
+  <div class="comp-body">
+
+    <!-- RUBRIKER -->
+    <section class="token-section">
+      <h2>Rubriker</h2>
+
+      <div style="display:grid; gap:12px;">
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <h1 style="margin:0; font-size:48px; line-height:1.1; letter-spacing:-0.03em; color:var(--primary-dark);">Standardisering skapar värde</h1>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Element</span><span class="type-meta-value">h1 / .page-title (stor)</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">48px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">700–800</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.1</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Teckenavstånd</span><span class="type-meta-value">-0.03em</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Färg</span><span class="type-meta-value">--primary-dark</span></div>
+          </div>
+        </div>
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <h1 style="margin:0; font-size:38px; line-height:1.1; letter-spacing:-0.03em; color:var(--primary-dark);">Standardisering skapar värde</h1>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Element</span><span class="type-meta-value">h1 / .page-title</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">38px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">700</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.1</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Teckenavstånd</span><span class="type-meta-value">-0.03em</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Färg</span><span class="type-meta-value">--primary-dark</span></div>
+          </div>
+        </div>
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <h2 style="margin:0; font-size:28px; line-height:1.2; letter-spacing:-0.02em; color:var(--text);">Köp och prenumerera på standarder</h2>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Element</span><span class="type-meta-value">h2</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">28px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">700</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.2</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Teckenavstånd</span><span class="type-meta-value">-0.02em</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Färg</span><span class="type-meta-value">--text</span></div>
+          </div>
+        </div>
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <h3 style="margin:0; font-size:20px; line-height:1.25; letter-spacing:-0.02em; color:var(--text);">Kvalitetsledningssystem – SS-ISO 9001</h3>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Element</span><span class="type-meta-value">h3 / .card h3</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">20px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">700</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.25</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Teckenavstånd</span><span class="type-meta-value">-0.02em</span></div>
+          </div>
+        </div>
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <h4 style="margin:0; font-size:16px; line-height:1.35; color:var(--text);">Abonnemang och fleranvändarlicenser</h4>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Element</span><span class="type-meta-value">h4</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">16px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">700</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.35</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BRÖDTEXT -->
+    <section class="token-section">
+      <h2>Brödtext & ingress</h2>
+
+      <div style="display:grid; gap:12px;">
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <p style="margin:0; font-size:18px; line-height:1.5; color:var(--accent); max-width:58ch;">SEK är Sveriges nationella standardiseringsorgan och ansvarar för standarder inom el, elektronik och telekommunikation. Vi är den officiella länken till internationella organ som IEC och ETSI.</p>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Klass</span><span class="type-meta-value">.page-ingress</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">18px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">400</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.5</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Max-bredd</span><span class="type-meta-value">58ch</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Färg</span><span class="type-meta-value">--accent</span></div>
+          </div>
+        </div>
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <p style="margin:0; font-size:16px; line-height:1.55; color:var(--accent);">Standarder hjälper företag att säkerställa kvalitet, säkerhet och interoperabilitet. Genom att följa internationellt erkända standarder kan du effektivisera processer och möta lagkrav.</p>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Element</span><span class="type-meta-value">p (brödtext)</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">16px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">400</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.55</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Färg</span><span class="type-meta-value">--accent</span></div>
+          </div>
+        </div>
+
+        <div class="type-example">
+          <div class="type-example-preview">
+            <p style="margin:0; font-size:14px; line-height:1.5; color:var(--accent);">Standarder hjälper företag att säkerställa kvalitet och säkerhet. Genom att följa internationellt erkända standarder kan du effektivisera processer och möta lagkrav.</p>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Element</span><span class="type-meta-value">p (liten brödtext)</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">14px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">400</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Radavstånd</span><span class="type-meta-value">1.5</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Färg</span><span class="type-meta-value">--accent</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SPECIALSTILAR -->
+    <section class="token-section">
+      <h2>Specialstilar</h2>
+
+      <div style="display:grid; gap:12px;">
+
+        <div class="type-example">
+          <div class="type-example-preview" style="display:flex; flex-direction:column; gap:12px;">
+            <span class="eyebrow">Kommittéarbete</span>
+            <span class="eyebrow" style="color: var(--copper);">Nyhet</span>
+            <span class="eyebrow" style="color: var(--primary);">Standarder</span>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Klass</span><span class="type-meta-value">.eyebrow</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">11px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Vikt</span><span class="type-meta-value">700</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Transform</span><span class="type-meta-value">uppercase</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Letter-spacing</span><span class="type-meta-value">0.08em</span></div>
+          </div>
+        </div>
+
+        <div class="type-example">
+          <div class="type-example-preview" style="display:flex; flex-direction:column; gap:8px;">
+            <span style="font-size:13px; color:var(--muted);">Uppdaterad 2024-11-15 · Av SEK redaktion</span>
+            <span style="font-size:12px; color:var(--muted);">Produkt-ID: SS-ISO 9001:2015 · Kategori: Ledningssystem</span>
+          </div>
+          <div class="type-example-meta">
+            <div class="type-meta-item"><span class="type-meta-label">Användning</span><span class="type-meta-value">Meta / hjälptext</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Storlek</span><span class="type-meta-value">12–13px</span></div>
+            <div class="type-meta-item"><span class="type-meta-label">Färg</span><span class="type-meta-value">--muted</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TEXTFÄRGER -->
+    <section class="token-section">
+      <h2>Textfärger i kontext</h2>
+      <div class="color-row">
+        <div class="color-text-example">
+          <div class="sample" style="color: var(--text);">Rubriker & primär text</div>
+          <div class="meta">--text · #2f3135</div>
+        </div>
+        <div class="color-text-example">
+          <div class="sample" style="color: var(--accent);">Brödtext & beskrivningar</div>
+          <div class="meta">--accent · #4f5660</div>
+        </div>
+        <div class="color-text-example">
+          <div class="sample" style="color: var(--muted);">Meta, etiketter & hjälptext</div>
+          <div class="meta">--muted · #66707c</div>
+        </div>
+        <div class="color-text-example">
+          <div class="sample" style="color: var(--primary-dark);">Rubriker & nav-länkar</div>
+          <div class="meta">--primary-dark · #1d3461</div>
+        </div>
+        <div class="color-text-example">
+          <div class="sample" style="color: var(--copper);">Länktext & CTA-text</div>
+          <div class="meta">--copper · #B85C2E</div>
+        </div>
+        <div class="color-text-example" style="background: var(--primary-dark);">
+          <div class="sample" style="color: #fff;">Text på mörk bakgrund</div>
+          <div class="meta" style="color: rgba(255,255,255,0.6);">#fff · rgba(255,255,255,0.92)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KOMPLETT TEXTBLOCK -->
+    <section class="token-section">
+      <h2>Typografin i sitt sammanhang</h2>
+      <div class="prose-example page">
+        <span class="eyebrow">Standarder & certifiering</span>
+        <h1 class="page-title" style="margin-top: 10px;">Delta i standardiseringsarbete</h1>
+        <p class="page-ingress">Genom att engagera dig i SEK:s kommittéer kan du påverka de standarder som formar din bransch – och ligga steget före.</p>
+        <h2 style="font-size:22px; color:var(--text); margin: 28px 0 10px; letter-spacing:-0.02em;">Varför delta?</h2>
+        <p>Standardiseringsarbete handlar om att samla expertis från hela branschen och omvandla den till gemensamma riktlinjer. Som deltagare i en SEK-kommitté representerar du din organisation och bidrar till att forma framtidens tekniska krav.</p>
+        <p>Det finns <strong>över 200 tekniska kommittéer</strong> inom SEK, och varje kommitté arbetar med specifika standarder inom sitt teknikområde.</p>
+        <h3 style="font-size:18px; color:var(--text); margin: 24px 0 8px;">Hur fungerar det i praktiken?</h3>
+        <p style="font-size:14px; color:var(--accent);">Kommittéerna träffas regelbundet för att granska och rösta om standardförslag. Som medlem får du tillgång till alla arbetsdokument och kan bidra med remissvar.</p>
+        <p style="font-size:13px; color:var(--muted); margin-top: 24px;">Senast uppdaterad: 2024-11-12 · Kontakt: info@sek.se</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

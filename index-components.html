@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEK – Komponentbibliotek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <style>
+    body {
+      background: #f4f6f9;
+    }
+
+    .lib-header {
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 32px var(--page-padding);
+    }
+
+    .lib-header h1 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+
+    .lib-header p {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .lib-body {
+      max-width: var(--page-max-width);
+      margin: 40px auto;
+      padding: 0 var(--page-padding);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Vänsternavigation */
+    .lib-nav {
+      position: sticky;
+      top: 24px;
+      background: #fff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(29,52,97,0.10);
+      overflow: hidden;
+    }
+
+    .lib-nav-section {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding: 14px 16px 6px;
+    }
+
+    .lib-nav a {
+      display: block;
+      padding: 9px 16px;
+      font-size: 14px;
+      text-decoration: none;
+      color: var(--text);
+      border-left: 3px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .lib-nav a:hover {
+      background: #f2f3f5;
+    }
+
+    .lib-nav a.active {
+      border-left-color: var(--copper);
+      font-weight: 600;
+      background: #fdf6f2;
+      color: var(--copper);
+    }
+
+    /* Höger: komponentkort */
+    .lib-content {
+      display: grid;
+      gap: 16px;
+    }
+
+    .lib-section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 24px 0 8px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+      letter-spacing: -0.02em;
+    }
+
+    .lib-section-title:first-child {
+      margin-top: 0;
+    }
+
+    .component-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(29,52,97,0.10);
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .component-card:hover {
+      box-shadow: 0 8px 24px rgba(29,52,97,0.12);
+      transform: translateY(-2px);
+    }
+
+    .component-card-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 20px 24px;
+    }
+
+    .component-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .component-card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .component-card-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .status--ready {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status--wip {
+      background: #fef9c3;
+      color: #854d0e;
+    }
+
+    .status--todo {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+
+    .component-card-arrow {
+      color: var(--copper);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+      margin-left: 8px;
+    }
+
+    .lib-intro {
+      background: #fff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(29,52,97,0.10);
+      padding: 24px 28px;
+      margin-bottom: 8px;
+    }
+
+    .lib-intro h2 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      color: var(--primary-dark);
+    }
+
+    .lib-intro p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--accent);
+    }
+
+    .lib-intro code {
+      font-size: 12px;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lib-header">
+    <div style="max-width: var(--page-max-width); margin: 0 auto;">
+      <h1>SEK Komponentbibliotek</h1>
+      <p>Varje sida visar en komponent i alla varianter. Ändra CSS → ser du det direkt på alla sidor som använder komponenten.</p>
+    </div>
+  </div>
+
+  <div class="lib-body">
+
+    <!-- Vänstermeny -->
+    <nav class="lib-nav" aria-label="Komponenter">
+      <div class="lib-nav-section">Grund</div>
+      <a href="#tokens">Design tokens</a>
+      <a href="#typografi">Typografi</a>
+
+      <div class="lib-nav-section">Navigering</div>
+      <a href="#header">Header & nav</a>
+      <a href="#footer">Footer</a>
+      <a href="#breadcrumb">Brödsmulor</a>
+
+      <div class="lib-nav-section">Knappar & länkar</div>
+      <a href="#knappar">Knappar</a>
+      <a href="#lankar">Länktyper</a>
+
+      <div class="lib-nav-section">Innehåll</div>
+      <a href="#hero">Hero</a>
+      <a href="#kort">Kort</a>
+      <a href="#citat">Citatblock</a>
+      <a href="#redak">Redaktionellt grid</a>
+      <a href="#listblock">Listblock</a>
+
+      <div class="lib-nav-section">Formulär</div>
+      <a href="#formular">Formulär & inputs</a>
+      <a href="#sok">Sökfält</a>
+      <a href="#filter">Filter & chips</a>
+
+      <div class="lib-nav-section">Modaler & overlay</div>
+      <a href="#modal">Modal</a>
+
+      <div class="lib-nav-section">Sidor</div>
+      <a href="#sidor">Färdiga sidor</a>
+    </nav>
+
+    <!-- Högerinnehåll -->
+    <main class="lib-content">
+
+      <div class="lib-intro">
+        <h2>Hur fungerar det?</h2>
+        <p>
+          Varje komponent har en egen HTML-fil under <code>components/</code>.
+          Alla sidor importerar <code>css/tokens.css</code> och <code>css/base.css</code> plus
+          sin komponentspecifika CSS. Klicka på en komponent nedan för att se alla varianter.
+        </p>
+      </div>
+
+      <!-- GRUND -->
+      <div class="lib-section-title" id="tokens">Grund</div>
+
+      <a class="component-card" href="components/tokens.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Design Tokens</p>
+            <p class="component-card-desc">Alla färger, typsnitt, radier och skuggor som CSS-variabler</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--ready">Klar</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/typografi.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Typografi</p>
+            <p class="component-card-desc">Rubriker H1–H6, brödtext, ingress, eyebrow, muted-text</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--ready">Klar</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- NAVIGERING -->
+      <div class="lib-section-title" id="header">Navigering</div>
+
+      <a class="component-card" href="components/header.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Header & navigation</p>
+            <p class="component-card-desc">Utility-nav, logotyp, huvudmeny, sökknapp, inloggning, megameny</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/footer.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Footer</p>
+            <p class="component-card-desc">Ljus footer, mörk footer (footer-dark), legal-bar</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/breadcrumb.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Brödsmulor</p>
+            <p class="component-card-desc">Enkel rad, med sidtitel, på hero-bild</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KNAPPAR & LÄNKAR -->
+      <div class="lib-section-title" id="knappar">Knappar & länkar</div>
+
+      <a class="component-card" href="components/knappar.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Knappar</p>
+            <p class="component-card-desc">CTA (primär), cta-outline (sekundär), link-ghost, link-arrow, type-btn</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- INNEHÅLL -->
+      <div class="lib-section-title" id="hero">Innehåll</div>
+
+      <a class="component-card" href="components/hero.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Hero</p>
+            <p class="component-card-desc">Startsida-hero (blå, full-bleed), info-sida hero (med bild), produktsida-hero</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/kort.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Kort</p>
+            <p class="component-card-desc">Entry-card, editorial-card, product-result-card, overview-card</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/citat.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Citatblock</p>
+            <p class="component-card-desc">Mörk bakgrund, ljus bakgrund, med bild, utan bild</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/redaktionellt-grid.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Redaktionellt grid</p>
+            <p class="component-card-desc">2-kolumns grid med artikel- och listblock</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/listblock.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Listblock</p>
+            <p class="component-card-desc">Listitems med delare, med pilar, sidebar-block, FAQ-lista</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- FORMULÄR -->
+      <div class="lib-section-title" id="formular">Formulär & Sök</div>
+
+      <a class="component-card" href="components/formular.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Formulär & inputs</p>
+            <p class="component-card-desc">Text-input, select, checkbox, form-row med label, edit-grid</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/sok.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Sökfält</p>
+            <p class="component-card-desc">Hero-sök (rund), header-sök-drawer, mobil sök-takeover</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="components/filter.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Filter & chips</p>
+            <p class="component-card-desc">Filter-chips, type-btn, search-tabs, direktsök-band</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- MODALER -->
+      <div class="lib-section-title" id="modal">Modaler & overlay</div>
+
+      <a class="component-card" href="components/modal.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Modal</p>
+            <p class="component-card-desc">Inloggning, bekräftelse, sök-modal</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- SIDOR -->
+      <div class="lib-section-title" id="sidor">Färdiga sidor</div>
+
+      <a class="component-card" href="index.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Startsida</p>
+            <p class="component-card-desc">Hero, shop-highlight, kommittéhighlight, entrykort, redaktionellt grid</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="delta-paverka.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Delta & Påverka</p>
+            <p class="component-card-desc">Infosida med artikel + sidebar</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="handla.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Så handlar du</p>
+            <p class="component-card-desc">Infosida med steg, FAQ</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="shop.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Köp produkter</p>
+            <p class="component-card-desc">Sök + filter + produktlista med tabs</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="standard.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Produktsida</p>
+            <p class="component-card-desc">SS-ISO 9001 – specifikation, priser, varianter</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="component-card" href="mina-sidor.html">
+        <div class="component-card-inner">
+          <div>
+            <p class="component-card-title">Mina sidor</p>
+            <p class="component-card-desc">Översikt, uppgifter, köp, abonnemang, kommittéarbete</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="component-card-status status--todo">Kommer</span>
+            <span class="component-card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </main>
+  </div>
+
+</body>
+</html>

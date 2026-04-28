@@ -1,0 +1,61 @@
+/* ============================================================
+   SEK Design Tokens
+   Alla CSS-variabler som styr designsystemet.
+   Ändra här — effekten sprider sig till alla komponenter.
+
+   REGEL: Inga hårdkodade färger ska förekomma utanför den här
+   filen. Alla hex/rgba-värden refereras via var(--...).
+   ============================================================ */
+
+:root {
+
+  /* ── Bakgrunder ─────────────────────────────────────────── */
+  --bg:             #ffffff;   /* Sidans grundbakgrund */
+  --surface:        #ffffff;   /* Kortets/panelens yta */
+  --surface-subtle: #fafafa;   /* Paneler, list-items, utility-nav */
+  --surface-hover:  #f2f3f5;   /* Hover-states, chip-bakgrunder, nav */
+  --surface-warm:   #faf7f2;   /* Soft entry-cards, hover på copper-element */
+  --surface-blue:   #f9fbfd;   /* Benefit-items, helper-box */
+  --placeholder:    #edf3f9;   /* Platshållarytor */
+
+  /* ── Linjer & borders ───────────────────────────────────── */
+  --line:           #d6dfeb;   /* Subtila linjer, dashed borders */
+  --line-dark:      #9eb3cb;   /* Tydligare borders på kort och inputs */
+
+  /* ── Text ───────────────────────────────────────────────── */
+  --text:           #2f3135;   /* Primär text, rubriker */
+  --accent:         #4f5660;   /* Brödtext, beskrivningar */
+  --muted:          #66707c;   /* Meta-text, etiketter, hjälptext */
+
+  /* ── Varumärkesfärger ───────────────────────────────────── */
+  --primary:        #009bd9;   /* SEK blå – fokusring, ikoner */
+  --primary-dark:   #1d3461;   /* SEK mörkblå – rubriker, nav */
+  --copper:         #B85C2E;   /* CTA-knappar, accentlänkar */
+  --copper-dark:    #A55229;   /* Hover-state för copper */
+
+  /* ── Statusfärger ───────────────────────────────────────── */
+  --status-success-bg:   #dcfce7;
+  --status-success-text: #166534;
+  --status-error-bg:     #fee2e2;
+  --status-error-text:   #b91c1c;
+
+  /* ── Fokusring ──────────────────────────────────────────── */
+  --focus:           #009bd9;
+  --focus-offset-bg: #ffffff;
+
+  /* ── Skuggor ────────────────────────────────────────────── */
+  --shadow-panel: 0 2px 8px rgba(29, 52, 97, 0.08), 0 1px 2px rgba(29, 52, 97, 0.06);
+
+  /* ── Hörnradier ─────────────────────────────────────────── */
+  --radius-lg:   24px;
+  --radius-md:   8px;
+  --radius-sm:   12px;
+  --radius-pill: 999px;
+
+  /* ── Typsnitt ───────────────────────────────────────────── */
+  --font-body: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --page-max-width: 1280px;
+  --page-padding:   24px;
+}

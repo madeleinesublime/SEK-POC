@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEK – Design Tokens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    body { background: #f4f6f9; }
+
+    .comp-header {
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .comp-header a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .comp-header a:hover { color: #fff; }
+    .comp-header h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .comp-header-sep { color: rgba(255,255,255,0.3); }
+
+    .comp-body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+      display: grid;
+      gap: 48px;
+    }
+
+    .token-section h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Färgpaletten */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .color-swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .color-swatch-block {
+      height: 72px;
+    }
+
+    .color-swatch-label {
+      background: #fff;
+      padding: 10px 12px;
+    }
+
+    .color-swatch-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+    }
+
+    .color-swatch-var {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: monospace;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .color-swatch-hex {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: monospace;
+      display: block;
+    }
+
+    /* Skuggor */
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .shadow-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 28px 20px 20px;
+    }
+
+    .shadow-card-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .shadow-card-value {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: monospace;
+      line-height: 1.5;
+      word-break: break-all;
+    }
+
+    /* Radier */
+    .radius-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .radius-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .radius-box {
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      opacity: 0.18;
+      border: 2px solid var(--primary);
+    }
+
+    .radius-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .radius-var {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: monospace;
+    }
+
+    /* Avstånd */
+    .spacing-grid {
+      display: flex;
+      gap: 0;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .spacing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .spacing-bar {
+      background: var(--primary);
+      opacity: 0.25;
+      width: 24px;
+      border-radius: 2px;
+    }
+
+    .spacing-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="comp-header">
+    <a href="../index-components.html">← Bibliotek</a>
+    <span class="comp-header-sep">/</span>
+    <h1>Design Tokens</h1>
+  </div>
+
+  <div class="comp-body">
+
+    <!-- BAKGRUNDER -->
+    <section class="token-section">
+      <h2>Bakgrunder</h2>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--bg); border-bottom: 1px solid #eee;"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Bakgrund</span>
+            <span class="color-swatch-var">--bg</span>
+            <span class="color-swatch-hex">#ffffff</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--surface); border-bottom: 1px solid #eee;"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Yta</span>
+            <span class="color-swatch-var">--surface</span>
+            <span class="color-swatch-hex">#ffffff</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--surface-subtle);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Yta subtil</span>
+            <span class="color-swatch-var">--surface-subtle</span>
+            <span class="color-swatch-hex">#fafafa</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--surface-hover);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Yta hover</span>
+            <span class="color-swatch-var">--surface-hover</span>
+            <span class="color-swatch-hex">#f2f3f5</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--surface-warm);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Yta varm</span>
+            <span class="color-swatch-var">--surface-warm</span>
+            <span class="color-swatch-hex">#faf7f2</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--surface-blue);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Yta blå</span>
+            <span class="color-swatch-var">--surface-blue</span>
+            <span class="color-swatch-hex">#f9fbfd</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--placeholder);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Platshållare</span>
+            <span class="color-swatch-var">--placeholder</span>
+            <span class="color-swatch-hex">#edf3f9</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINJER -->
+    <section class="token-section">
+      <h2>Linjer & borders</h2>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--line);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Linje</span>
+            <span class="color-swatch-var">--line</span>
+            <span class="color-swatch-hex">#d6dfeb</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--line-dark);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Linje mörk</span>
+            <span class="color-swatch-var">--line-dark</span>
+            <span class="color-swatch-hex">#9eb3cb</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXT -->
+    <section class="token-section">
+      <h2>Text</h2>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--text);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Text</span>
+            <span class="color-swatch-var">--text</span>
+            <span class="color-swatch-hex">#2f3135</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--accent);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Accent</span>
+            <span class="color-swatch-var">--accent</span>
+            <span class="color-swatch-hex">#4f5660</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--muted);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Dämpad</span>
+            <span class="color-swatch-var">--muted</span>
+            <span class="color-swatch-hex">#66707c</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VARUMÄRKE -->
+    <section class="token-section">
+      <h2>Varumärkesfärger</h2>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--primary);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Primär</span>
+            <span class="color-swatch-var">--primary</span>
+            <span class="color-swatch-hex">#009bd9</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--primary-dark);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Primär mörk</span>
+            <span class="color-swatch-var">--primary-dark</span>
+            <span class="color-swatch-hex">#1d3461</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--copper);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Koppar</span>
+            <span class="color-swatch-var">--copper</span>
+            <span class="color-swatch-hex">#B85C2E</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--copper-dark);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Koppar hover</span>
+            <span class="color-swatch-var">--copper-dark</span>
+            <span class="color-swatch-hex">#A55229</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--focus);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Fokus</span>
+            <span class="color-swatch-var">--focus</span>
+            <span class="color-swatch-hex">#009bd9</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="token-section">
+      <h2>Statusfärger</h2>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--status-success-bg);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Lyckad – bakgrund</span>
+            <span class="color-swatch-var">--status-success-bg</span>
+            <span class="color-swatch-hex">#dcfce7</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--status-success-text);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name" style="color:#fff;">Lyckad – text</span>
+            <span class="color-swatch-var" style="color:rgba(255,255,255,0.7);">--status-success-text</span>
+            <span class="color-swatch-hex" style="color:rgba(255,255,255,0.7);">#166534</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--status-error-bg);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name">Fel – bakgrund</span>
+            <span class="color-swatch-var">--status-error-bg</span>
+            <span class="color-swatch-hex">#fee2e2</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: var(--status-error-text);"></div>
+          <div class="color-swatch-label">
+            <span class="color-swatch-name" style="color:#fff;">Fel – text</span>
+            <span class="color-swatch-var" style="color:rgba(255,255,255,0.7);">--status-error-text</span>
+            <span class="color-swatch-hex" style="color:rgba(255,255,255,0.7);">#b91c1c</span>
+          </div>
+        </div>
+      </div>
+      <!-- Statusbadge-förhandsgranskning -->
+      <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+        <span style="display:inline-block; padding:4px 8px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; background:var(--status-success-bg); color:var(--status-success-text);">Ny</span>
+        <span style="display:inline-block; padding:4px 8px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; background:var(--status-error-bg); color:var(--status-error-text);">Utgången</span>
+      </div>
+    </section>
+
+    <!-- SKUGGOR -->
+    <section class="token-section">
+      <h2>Skuggor</h2>
+      <div class="shadow-grid">
+        <div class="shadow-card" style="box-shadow: var(--shadow-panel);">
+          <div class="shadow-card-name">--shadow-panel</div>
+          <div class="shadow-card-value">0 2px 8px rgba(29,52,97,0.08),<br>0 1px 2px rgba(29,52,97,0.06)</div>
+          <div class="shadow-card-value" style="margin-top:8px; color:var(--muted);">Används på sidebar-block i "Så handlar du"</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RADIER -->
+    <section class="token-section">
+      <h2>Hörnradier</h2>
+      <div class="radius-grid">
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: 0;"></div>
+          <div class="radius-label">0</div>
+          <div class="radius-var">ingen</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: var(--radius-md);"></div>
+          <div class="radius-label">8px</div>
+          <div class="radius-var">--radius-md</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: var(--radius-sm);"></div>
+          <div class="radius-label">12px</div>
+          <div class="radius-var">--radius-sm</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: var(--radius-lg);"></div>
+          <div class="radius-label">24px</div>
+          <div class="radius-var">--radius-lg</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: var(--radius-pill);"></div>
+          <div class="radius-label">999px</div>
+          <div class="radius-var">--radius-pill</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVSTÅND -->
+    <section class="token-section">
+      <h2>Avståndsskala (används inte som variabler, men är vår referens)</h2>
+      <div class="spacing-grid">
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 4px;"></div>
+          <div class="spacing-val">4px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 8px;"></div>
+          <div class="spacing-val">8px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 12px;"></div>
+          <div class="spacing-val">12px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 16px;"></div>
+          <div class="spacing-val">16px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 20px;"></div>
+          <div class="spacing-val">20px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 24px;"></div>
+          <div class="spacing-val">24px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 28px;"></div>
+          <div class="spacing-val">28px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 32px;"></div>
+          <div class="spacing-val">32px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 40px;"></div>
+          <div class="spacing-val">40px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 48px;"></div>
+          <div class="spacing-val">48px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 56px;"></div>
+          <div class="spacing-val">56px</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height: 64px;"></div>
+          <div class="spacing-val">64px</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
