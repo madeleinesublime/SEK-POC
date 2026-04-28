@@ -1,0 +1,226 @@
+/* ============================================================
+   SEK Buttons
+   Importera tokens.css och base.css innan denna fil.
+   ============================================================ */
+
+/* ── Delad bas ───────────────────────────────────────────── */
+.cta,
+.cta-outline,
+.link-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── CTA – primärknapp (copper) ──────────────────────────── */
+.cta {
+  min-height: 44px;
+  padding: 0 24px;
+  border: 0;
+  background: var(--copper);
+  color: var(--text-inverse);
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 160ms ease;
+}
+
+.cta:hover {
+  background: var(--copper-dark);
+  color: var(--text-inverse);
+}
+
+/* Liten variant */
+.cta--sm {
+  min-height: 36px;
+  padding: 0 18px;
+  font-size: 14px;
+}
+
+/* ── CTA outline – sekundärknapp ─────────────────────────── */
+.cta-outline {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1.5px solid var(--copper);
+  background: var(--surface);
+  color: var(--copper);
+  font-size: 14px;
+  transition: background-color 160ms ease;
+}
+
+.cta-outline:hover {
+  background: var(--surface-warm);
+  color: var(--copper);
+}
+
+/* ── Link ghost – tertiärknapp med inbyggd pil ───────────── */
+.link-ghost {
+  min-height: 40px;
+  padding: 0 16px 0 18px;
+  gap: 8px;
+  border: 0;
+  background: var(--surface-hover);
+  color: var(--text);
+  font-size: 14px;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.link-ghost::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  background-image: url("../../images/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+  transition: transform 180ms ease;
+}
+
+.link-ghost:hover {
+  background: var(--surface-hover);
+  color: var(--primary-dark);
+}
+
+.link-ghost:hover::after {
+  transform: translateX(4px);
+}
+
+/* Variant: på mörk bakgrund (hero) */
+.link-ghost--on-dark {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-inverse);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 30px;
+  padding: 0 12px 0 14px;
+}
+
+.link-ghost--on-dark::after {
+  background-image: url("../../images/icon-arrow-white.svg");
+}
+
+.link-ghost--on-dark:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-inverse);
+}
+
+/* ── Link arrow – textlänk med pil ──────────────────────── */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+}
+
+.link-arrow::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  background-image: url("../../images/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+  transition: transform 150ms ease;
+}
+
+.link-arrow:hover::after {
+  transform: translateX(3px);
+}
+
+/* ── Nav-länk – huvudnavigation ──────────────────────────── */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--primary-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background: var(--surface-hover);
+  border-color: transparent;
+  color: var(--text);
+}
+
+.nav-link.is-active {
+  background: var(--surface-hover);
+  border-color: transparent;
+  color: var(--primary-dark);
+}
+
+/* Utility-nav-länk – toppraden med språk, inloggning etc. */
+.utility-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0 10px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.utility-nav-link:hover {
+  color: var(--primary-dark);
+}
+
+/* ── Type-btn – filterknappar / kategoriväljare ───────────── */
+.type-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--primary-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.type-btn:hover {
+  background: var(--surface-hover);
+  border-color: transparent;
+  color: var(--text);
+}
+
+.type-btn.active {
+  /* rgba-overlay av --primary-dark; ingen token för opacitetsvarianter */
+  background: rgba(29, 52, 97, 0.08);
+  border-color: rgba(29, 52, 97, 0.2);
+  color: var(--primary-dark);
+  font-weight: 700;
+}

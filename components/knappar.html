@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEK – Knappar & länkar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <style>
+    body { background: var(--surface-hover); }
+
+    .comp-header {
+      background: var(--primary-dark);
+      color: var(--text-inverse);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .comp-header a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .comp-header a:hover { color: var(--text-inverse); }
+    .comp-header h1 {
+      margin: 0;
+      font-size: 22px;
+      color: var(--text-inverse);
+      letter-spacing: -0.02em;
+    }
+    .comp-header-sep { color: rgba(255,255,255,0.3); }
+
+    .comp-body {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+      display: grid;
+      gap: 40px;
+    }
+
+    .comp-section { display: grid; gap: 16px; }
+
+    .comp-section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      margin: 0;
+    }
+
+    .variant-block {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(29,52,97,0.10);
+      overflow: hidden;
+    }
+
+    .variant-preview {
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .variant-preview--dark { background: var(--primary-dark); }
+    .variant-preview--warm { background: var(--surface-warm); }
+    .variant-preview--subtle { background: var(--surface-subtle); }
+
+    .variant-meta {
+      padding: 14px 20px;
+      background: var(--surface-subtle);
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 2px; }
+
+    .meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .meta-value {
+      font-size: 12px;
+      color: var(--text);
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="comp-header">
+    <a href="../index-components.html">← Bibliotek</a>
+    <span class="comp-header-sep">/</span>
+    <h1>Knappar & länkar</h1>
+  </div>
+
+  <div class="comp-body">
+
+    <!-- ══════════════════════════════════════════════════════
+         KNAPPAR
+    ═══════════════════════════════════════════════════════ -->
+
+    <!-- CTA – PRIMÄR -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">CTA – Primärknapp</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview">
+          <button class="cta">Köp standard</button>
+          <button class="cta cta--sm">Köp standard</button>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.cta</span></div>
+          <div class="meta-item"><span class="meta-label">Liten variant</span><span class="meta-value">.cta.cta--sm</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">--copper → --copper-dark</span></div>
+          <div class="meta-item"><span class="meta-label">Text</span><span class="meta-value">--text-inverse</span></div>
+          <div class="meta-item"><span class="meta-label">Storlek standard</span><span class="meta-value">44px hög · 16px text</span></div>
+          <div class="meta-item"><span class="meta-label">Storlek liten</span><span class="meta-value">36px hög · 14px text</span></div>
+        </div>
+      </div>
+
+      <div class="variant-block">
+        <div class="variant-preview variant-preview--dark">
+          <button class="cta">Köp standard</button>
+          <button class="cta cta--sm">Köp standard</button>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Kontext</span><span class="meta-value">På mörk bakgrund (--primary-dark) – ingen modifierklass behövs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA OUTLINE – SEKUNDÄR -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">CTA Outline – Sekundärknapp</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview">
+          <a href="#" class="cta-outline">Bli medlem</a>
+          <a href="#" class="cta-outline">Se alla standarder</a>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.cta-outline</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">--surface → --surface-warm vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Border</span><span class="meta-value">1.5px · --copper</span></div>
+          <div class="meta-item"><span class="meta-label">Text</span><span class="meta-value">--copper</span></div>
+        </div>
+      </div>
+
+      <div class="variant-block">
+        <div class="variant-preview variant-preview--warm">
+          <a href="#" class="cta-outline">Bli medlem</a>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Kontext</span><span class="meta-value">På --surface-warm bakgrund</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINK GHOST -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Link Ghost – med inbyggd pil</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview">
+          <a href="#" class="link-ghost">Se alla nyheter</a>
+          <a href="#" class="link-ghost">Delta i kommitté</a>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.link-ghost</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">--surface-hover (rör sig ej vid hover)</span></div>
+          <div class="meta-item"><span class="meta-label">Text hover</span><span class="meta-value">--primary-dark</span></div>
+          <div class="meta-item"><span class="meta-label">Pil hover</span><span class="meta-value">translateX(4px) – bara pilen rör sig</span></div>
+        </div>
+      </div>
+
+      <div class="variant-block">
+        <div class="variant-preview variant-preview--dark">
+          <a href="#" class="link-ghost link-ghost--on-dark">Populära standarder</a>
+          <a href="#" class="link-ghost link-ghost--on-dark">SS-EN 62305</a>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.link-ghost.link-ghost--on-dark</span></div>
+          <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Startsida-hero, intro-länkraden</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPE-BTN -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Type-btn – Filterknappar</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview" style="flex-wrap: wrap;">
+          <button class="type-btn active">Standard</button>
+          <button class="type-btn">Teknisk rapport</button>
+          <button class="type-btn">Teknisk specifikation</button>
+          <button class="type-btn">Vägledning</button>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.type-btn</span></div>
+          <div class="meta-item"><span class="meta-label">Aktiv</span><span class="meta-value">.type-btn.active</span></div>
+          <div class="meta-item"><span class="meta-label">Border</span><span class="meta-value">--line</span></div>
+          <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Produktsida, direktsök-band, hero</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         LÄNKAR
+    ═══════════════════════════════════════════════════════ -->
+
+    <!-- LINK ARROW -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Link Arrow – Textlänk med pil</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+          <a href="#" class="link-arrow">Bli kommittédeltagare</a>
+          <a href="#" class="link-arrow">Hitta tekniska kommittéer</a>
+          <a href="#" class="link-arrow">Se kalendarium</a>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.link-arrow</span></div>
+          <div class="meta-item"><span class="meta-label">Färg</span><span class="meta-value">--text</span></div>
+          <div class="meta-item"><span class="meta-label">Pil hover</span><span class="meta-value">translateX(3px)</span></div>
+          <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Sidebar-listor, redaktionella avsnitt</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LÄNK I BRÖDTEXT -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Länk i brödtext</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview" style="flex-direction: column; align-items: flex-start;">
+          <div class="prose" style="max-width: 56ch;">
+            <p style="font-size:16px; line-height:1.6; color:var(--accent); margin:0 0 14px;">
+              SEK är Sveriges nationella standardiseringsorgan och ansvarar för standarder inom el, elektronik och
+              <a href="#">telekommunikation</a>. Vi är den officiella länken till internationella organ som
+              <a href="#">IEC</a> och <a href="#">ETSI</a>.
+            </p>
+            <p style="font-size:14px; line-height:1.6; color:var(--accent); margin:0;">
+              Läs mer om hur du kan <a href="#">delta i standardiseringsarbete</a> eller
+              <a href="#">köpa standarder</a> direkt i vår butik.
+            </p>
+          </div>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.prose a</span></div>
+          <div class="meta-item"><span class="meta-label">Färg</span><span class="meta-value">--copper → --copper-dark vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Underline</span><span class="meta-value">Transparent i vila, synlig vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Artiklar, produktbeskrivningar, infosidor</span></div>
+          <div class="meta-item"><span class="meta-label">CSS-fil</span><span class="meta-value">base.css</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAV-LÄNK -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Nav-länk</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview variant-preview--subtle">
+          <a href="#" class="nav-link">Standarder</a>
+          <a href="#" class="nav-link">Kommittéarbete</a>
+          <a href="#" class="nav-link is-active">Om SEK</a>
+          <a href="#" class="nav-link">Nyheter</a>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.nav-link</span></div>
+          <div class="meta-item"><span class="meta-label">Aktiv</span><span class="meta-value">.nav-link.is-active</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">--surface → --surface-hover vid hover/aktiv</span></div>
+          <div class="meta-item"><span class="meta-label">Border</span><span class="meta-value">1px · --line (försvinner vid hover)</span></div>
+          <div class="meta-item"><span class="meta-label">Text</span><span class="meta-value">--primary-dark</span></div>
+          <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Huvud-navigationen i headern</span></div>
+        </div>
+      </div>
+
+      <div class="variant-block">
+        <div class="variant-preview">
+          <a href="#" class="utility-nav-link">EN</a>
+          <a href="#" class="utility-nav-link">Logga in</a>
+          <a href="#" class="utility-nav-link">Kundservice</a>
+        </div>
+        <div class="variant-meta">
+          <div class="meta-item"><span class="meta-label">Klass</span><span class="meta-value">.utility-nav-link</span></div>
+          <div class="meta-item"><span class="meta-label">Bakgrund</span><span class="meta-value">transparent</span></div>
+          <div class="meta-item"><span class="meta-label">Text</span><span class="meta-value">--text → --primary-dark vid hover</span></div>
+          <div class="meta-item"><span class="meta-label">Storlek</span><span class="meta-value">32px hög · 13px text</span></div>
+          <div class="meta-item"><span class="meta-label">Används</span><span class="meta-value">Utility-raden högst upp i headern</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KOMBINATIONER -->
+    <section class="comp-section">
+      <h2 class="comp-section-title">Kombinationer i kontext</h2>
+
+      <div class="variant-block">
+        <div class="variant-preview" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+
+          <div>
+            <div class="meta-label" style="margin-bottom: 10px;">Primär + Sekundär (startsida, infosida)</div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="#" class="cta">Köp standard</a>
+              <a href="#" class="cta-outline">Se abonnemang</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="meta-label" style="margin-bottom: 10px;">Primär + Ghost (kortkomponenter)</div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="#" class="cta cta--sm">Köp nu</a>
+              <a href="#" class="link-ghost">Läs mer</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="meta-label" style="margin-bottom: 10px;">Enbart Ghost (navigerande länk)</div>
+            <a href="#" class="link-ghost">Se alla standarder</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

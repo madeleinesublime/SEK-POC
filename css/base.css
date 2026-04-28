@@ -89,6 +89,21 @@ a {
   cursor: pointer;
 }
 
+/* Länk i brödtext – används inuti p, li, dd */
+.prose a {
+  color: var(--copper);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+
+.prose a:hover {
+  color: var(--copper-dark);
+  text-decoration-color: var(--copper-dark);
+}
+
 /* ── Utility: visa/dölja ─────────────────────────────────── */
 .hidden {
   display: none !important;

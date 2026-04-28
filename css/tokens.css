@@ -26,6 +26,7 @@
   --text:           #2f3135;   /* Primär text, rubriker */
   --accent:         #4f5660;   /* Brödtext, beskrivningar */
   --muted:          #66707c;   /* Meta-text, etiketter, hjälptext */
+  --text-inverse:   #ffffff;   /* Text på mörk/copper-bakgrund */
 
   /* ── Varumärkesfärger ───────────────────────────────────── */
   --primary:        #009bd9;   /* SEK blå – fokusring, ikoner */
